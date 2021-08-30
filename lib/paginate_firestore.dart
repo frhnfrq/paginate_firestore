@@ -113,13 +113,7 @@ class _PaginateFirestoreState extends State<PaginateFirestore> {
           }
 
           if (loadedState.documentSnapshots.isEmpty) {
-            return SingleChildScrollView(
-              physics: AlwaysScrollableScrollPhysics(),
-              child: Container(
-                child: widget.emptyDisplay,
-                height: MediaQuery.of(context).size.height,
-              ),
-            );
+            return widget.emptyDisplay;
           }
           return widget.itemBuilderType == PaginateBuilderType.listView
               ? _buildListView(loadedState)
